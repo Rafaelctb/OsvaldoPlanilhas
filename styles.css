@@ -1,0 +1,704 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+/* Modal de Boas-Vindas */
+.modal-gift {
+    display: none; /* Oculto por padrão */
+    position: fixed;
+    z-index: 100; /* Acima de todos os outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo escurecido e semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px); /* Desfoque do fundo */
+    animation: fadeIn 0.5s ease; /* Animação de fade-in */
+    padding: 20px;
+}
+
+/* Animação de Fade-In */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: #ffffff; /* Fundo claro */
+    padding: 30px;
+    border-radius: 25px; /* Bordas arredondadas no modal */
+    width: 100%; /* Define largura total para dispositivos móveis */
+    max-width: 600px; /* Define a largura máxima do modal */
+    color: #333;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); /* Sombra suave */
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    animation: popUp 0.4s ease; /* Animação de "pop-up" */
+}
+
+/* Animação de pop-up (crescimento suave) */
+@keyframes popUp {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-content h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #6200ea; /* Cor de destaque */
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.modal-content p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.modal-content label {
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 10px;
+    color: white; /* Cor mais escura para melhor contraste */
+    text-align: left;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 12px; /* Bordas arredondadas nos inputs */
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 1em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.modal-content input:focus {
+    background-color: #fff;
+    border-color: #6200ea;
+    outline: none;
+}
+
+/* Botão estilizado */
+.modal-content button {
+    padding: 14px 28px;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 20px; /* Bordas arredondadas no botão */
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(98, 0, 234, 0.5);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px; /* Espaço entre o texto e o botão */
+}
+
+.modal-content button:hover {
+    background-color: #7b1fa2;
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(98, 0, 234, 0.7);
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #aaa;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    border-radius: 50%; /* Bordas arredondadas no botão de fechar */
+    padding: 5px; /* Espaçamento para o botão de fechar */
+}
+
+.close:hover {
+    color: #6200ea;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 20px;
+        width: 80%; /* Mantém o modal centralizado com uma largura menor */
+        max-width: 80%; /* Reduz a largura máxima em dispositivos menores */
+    }
+
+    .modal-content h2 {
+        font-size: 1.8em;
+    }
+
+    .modal-content p {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+
+    .modal-content button {
+        padding: 12px 24px;
+        font-size: 1.1em;
+    }
+
+    .close {
+        top: 10px;
+        right: 10px;
+        font-size: 22px; /* Diminui o tamanho do botão de fechar */
+    }
+}
+
+
+/* Container centralizado */
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+    text-align: center;
+    overflow: visible;
+}
+
+/* Estilos para a imagem do banner */
+.banner-image {
+    width: 100%;
+    height: 450px;
+    width: 900px;
+    display: block;
+    margin: 0 auto 30px auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.banner-image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
+}
+
+/* Caixa de ajuda lateral */
+.help-box {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.help-toggle {
+    position: absolute;
+    top: 10px;
+    left: -40px;
+    width: 30px;
+    height: 30px;
+    background-color: #6200ea;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.help-content {
+    color: #ccc;
+    font-size: 0.95em;
+    display: block;
+}
+
+.help-content h2 {
+    color: #fff;
+    font-size: 1.2em;
+    margin-bottom: 12px;
+}
+
+.help-content ol {
+    list-style: decimal inside;
+    padding-left: 20px;
+}
+
+.help-content a {
+    color: #bb86fc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.help-content a:hover {
+    color: #e0aaff;
+    text-decoration: underline;
+}
+
+/* Estilo para a seção de informações sobre o Google Drive */
+.drive-info {
+    background-color: #2a2a2a;
+    color: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    font-size: 1.2em;
+    line-height: 1.5;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+    transition: box-shadow 0.4s ease;
+}
+
+.drive-info:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
+}
+
+.drive-info strong {
+    color: #ffffff;
+}
+
+.drive-info span {
+    color: #bb86fc;
+}
+
+/* Estilos do Ícone de Ajuda */
+.help-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #bb86fc;
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.help-icon:hover {
+    background-color: #e0aaff;
+    transform: scale(1.05);
+}
+
+/* Estilos do Modal de Ajuda */
+.help-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+.help-content {
+    background-color: #2a2a2a;
+    padding: 25px;
+    width: 320px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+    position: relative;
+}
+
+.help-modal .help-content h2 {
+    color: white;
+    margin-bottom: 12px;
+}
+
+.help-modal .help-content input,
+.help-modal .help-content textarea {
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: #1e1e1e;
+    color: white;
+    font-size: 1em;
+}
+
+.help-modal .help-content button {
+    width: 100%;
+    padding: 12px;
+    background-color: #7b1fa2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.help-modal .help-content button:hover {
+    background-color: #9c27b0;
+    transform: scale(1.03);
+}
+
+/* Botão de fechar modal */
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* Caixa de Pesquisa */
+.search-box {
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.search-box input {
+    width: 60%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.1em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para a mensagem de "Sem Resultados" */
+#noResultsMessage {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#noResultsMessage p {
+    font-size: 1.2em;
+    color: white;
+}
+
+#noResultsMessage p:nth-child(2) {
+    font-size: 1.1em;
+    color: whitesmoke;
+}
+
+/* Estilo para o botão de "Solicitar Minha Planilha" */
+#noResultsMessage button {
+    padding: 12px 24px;
+    font-size: 1em;
+    color: white;
+    background-color: #6200ea;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#noResultsMessage button:hover {
+    background-color: #7b1fa2;
+}
+
+/* Estilos do Carrossel */
+.carousel-container {
+    position: relative;
+    margin: 40px 0;
+    padding: 20px 0;
+    background-color: #252525;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 30px;
+    justify-content: flex-start;
+    padding: 0 30px;
+    scroll-behavior: smooth; /* Habilita o deslize suave */
+    overflow: hidden;
+}
+
+.carousel-item {
+    min-width: 400px;
+    max-width: 400px;
+    height: 850px;
+    background: #2b2b2b;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.carousel-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.carousel-item img:hover {
+    transform: scale(1.05);
+}
+/* Estilos do Modal */
+.modal {
+    display: none; /* Oculto por padrão */
+    position: fixed;
+    z-index: 100; /* Colocado acima de outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semitransparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #2a2a2a;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.modal-content h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #bb86fc; /* Destaque no título */
+    text-align: center;
+}
+
+.modal-content p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #f5f5f5;
+    text-align: center;
+}
+
+.modal-content ul {
+    list-style-type: disc; /* Estilo dos itens da lista */
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
+
+.modal-content ul li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.modal-content a {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.modal-content button {
+    padding: 12px 25px;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #7b1fa2;
+    transform: scale(1.05);
+}
+
+/* Botão de fechar modal */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #aaa;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: white;
+}
+
+
+/* Alinhamento de texto e elementos */
+.carousel-item h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #f5f5f5;
+    letter-spacing: 1px;
+    min-height: 40px;
+}
+
+.carousel-item p {
+    font-size: 1em;
+    color: #aaa;
+    margin-bottom: 10px;
+    min-height: 60px;
+}
+
+.carousel-item strong {
+    font-size: 1.1em;
+    color: #f5f5f5;
+    margin-bottom: 15px;
+    min-height: 40px;
+}
+
+/* Botões de compra */
+.carousel-item button {
+    padding: 12px 20px;
+    background-color: #7b1fa2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: auto;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 90%;
+}
+
+.carousel-item button:hover {
+    background-color: #9c27b0;
+    transform: translateY(-4px);
+}
+
+/* Navegação do Carrossel */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    pointer-events: none;
+}
+
+.carousel-nav button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    font-size: 3em;
+    cursor: pointer;
+    color: white;
+    pointer-events: all;
+    padding: 10px 20px;
+    border-radius: 50%;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.carousel-nav button:hover {
+    background-color: rgba(187, 134, 252, 0.8);
+    color: #fff;
+}
+
+/* Estilos do Rodapé */
+footer {
+    background: linear-gradient(145deg, #111, #222);
+    color: #f5f5f5;
+    padding: 25px 0;
+    text-align: center;
+    font-size: 1em;
+    margin-top: 40px;
+    border-top: 1px solid #333;
+    transition: padding 0.3s ease;
+}
+
+footer:hover {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.95em;
+}
+
+/* Estilos responsivos para dispositivos móveis */
+@media (max-width: 768px) {
+    .carousel {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .carousel-item {
+        min-width: 90%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .carousel-item button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
+    .carousel-nav button {
+        font-size: 2em;
+    }
+
+    .help-box {
+        width: 80%;
+        right: 10px;
+    }
+
+    .help-icon {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    footer {
+        font-size: 0.8em;
+    }
+}
