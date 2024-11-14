@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Planilhas Automatizadas</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="footer.css">
+
+
+</head>
+  <body>
+ 
+    <header> 
+          <nav class="header--nav">
+              <ul class="header--page">
+                  <li><a href="planoMensal.html">Planos</a></li>
+                  <li><a href="index.html" class="header-nav--active">Home</a></li>
+                  <li><a href="comentarios.html">Apostas Diárias</a></li>
+              </ul>
+          </nav>
+    </header>
+
+    <body>
+
+        <header>
+            <h1>Bem-vindo aos comentarios diários</h1>
+            <p>Confira as novidades abaixo.</p>
+        </header>
+    
+        <section class="comentarios">
+            <h2>Comentários</h2>
+            
+            <!-- Comentários visíveis para todos -->
+            <div class="comentarios-lista">
+                <!-- Comentário 1 -->
+                <div class="comentario">
+                    <p><strong>Prof. Osvaldo:</strong> Números do dia: 02 - 23 - 25 - 45 - 55 - 60.</p>
+                    <span class="data">Data: 14/11/2024</span>
+                </div>
+                
+                <!-- Comentário 2 -->
+                <div class="comentario">
+                    <p><strong>Prof. Osvaldo:</strong> Números do dia: 07 - 11 - 14 - 39 - 42 - 50.</p>
+                    <span class="data">Data: 13/11/2024</span>
+                </div>
+            </div>
+    
+            <div class="barra-comentarios">
+                <h3>Deixe seu comentário (somente para administradores)</h3>
+                <textarea id="comentario-admin" rows="4" placeholder="Digite o seu comentário..."></textarea>
+                <button id="btn-enviar" onclick="enviarComentario()">Enviar Comentário</button>
+            </div>
+        </section>
+    
+        <footer>
+            <p>&copy; 2024 - Todos os direitos reservados.</p>
+        </footer>
+    
+        <script>
+            function verificarAdmin() {
+                const usuarioLogado = "admin";
+                const usuario = usuarioLogado.toLowerCase();
+    
+                if (usuario === "admin") {
+                    document.querySelector(".barra-comentarios").style.display = "block";
+                } else {
+                    document.querySelector(".barra-comentarios").style.display = "none";
+                }
+            }
+    
+            // Função de enviar comentário (exemplo de comportamento)
+            function enviarComentario() {
+                const comentario = document.getElementById("comentario-admin").value;
+                if (comentario.trim() === "") {
+                    alert("Por favor, digite um comentário.");
+                } else {
+                    // Aqui você pode enviar o comentário para o servidor ou armazená-lo
+                    const novoComentario = document.createElement("div");
+                    novoComentario.classList.add("comentario");
+    
+                    const p = document.createElement("p");
+                    p.innerHTML = `<strong>Prof. Osvaldo:</strong> ${comentario}`;
+                    novoComentario.appendChild(p);
+    
+                    const data = document.createElement("span");
+                    data.classList.add("data");
+                    data.textContent = "Data: " + new Date().toLocaleDateString();
+                    novoComentario.appendChild(data);
+    
+                    // Adiciona o novo comentário à lista de comentários
+                    document.querySelector(".comentarios-lista").appendChild(novoComentario);
+    
+                    // Limpar o textarea após envio
+                    document.getElementById("comentario-admin").value = "";
+                }
+            }
+    
+            // Verificar admin quando a página carregar
+            window.onload = verificarAdmin;
+        </script>
+    </body>
+    </html>
+
+    <footer id="footer">
+        <div class="footer-container">
+          
+          <!-- Informações de Contato -->
+          <div class="footer-contact">
+            <h3>Entre em Contato</h3>
+            <p>Email: <a href="email do osvaldo">osvaldinho.com</a></p>
+            <p>WhatsApp: <a href="whats osvaldo" target="_blank">+55 44990000000</a></p>
+          </div>
+      
+          <!-- Links para Redes Sociais -->
+          <div class="footer-social">
+            <h3>Siga-nos</h3>
+            <ul class="social-links">
+              <li><a href="insta osvaldo" target="_blank"><img src="images/insta.png" alt="Instagram"></a></li>
+              <li><a href="whats osvaldo" target="_blank"><img src="images/whatsapp.png" alt="WhatsApp"></a></li>
+             </ul>        
+            
+          </div>
+      <p><strong> Desenvolvido por Rafael Teixeira</strong></p>
+        <script src="carrossel.js"></script>
+        <script src="helpbox.js"></script>
+        <script src="searchtest.js"></script>
+        <script src="welcomegift.js"></script>
+      </body>
+      </html>
